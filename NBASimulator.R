@@ -10,18 +10,21 @@ mike <- c(.497,.327,30.1,5.3,6.2,2.3,0.8,2.7,21.2,1.7)
 scottie <- c(.473,.326,16.1,5.2,6.4,2,0.8,2.8,10.8,2.5)
 hakeem <- c(.512,.202,21.8,2.5,11.1,1.7,3.1,3.0,16.9,0.1)
 
-
 jaylen23 <- c(.491,.335,26.6,3.5,6.9,1.1,0.4,2.9,13.4,7.3)
 tatum23 <- c(.466,.350,30.1,4.6,8.8,1.1,0.7,2.9,11.8,9.3)
 bird <- c(.496,.376,24.3,6.3,10,1.7,0.8,3.1,17.4,1.9)
 mchale <- c(.554,.261,17.9,1.7,7.3,0.4,1.7,1.9,12.5,0.2)
 pierce08 <- c(.464,.392,19.6,4.5,5.1,1.3,0.5,2.8,9.2,4.6)
 
-otherShots <- kd[3:4] + steph [3:4] + mike[3:4] + scottie[3:4] + hakeem[3:4]
-otherShotsTot <- otherShots[1] + otherShots[2]
+# put all stats in a vector
+otherV <- c(kd,steph,mike,scottie,hakeem)
+celticV <- c(jaylen23,tatum23,bird,mchale,pierce08)
 
-celticsShots <- jaylen23[3:4] + tatum23 [3:4] + bird[3:4] + mchale[3:4] + pierce08[3:4] 
-celticsShotsTot <- celticsShots[1] + celticsShots[2]
+otherShots <- c(otherV[3:4],otherV[13:14],otherV[23:24],otherV[33:34],otherV[43:44])
+otherShotsTot <- sum(otherShots[1:10])
+
+celticShots <- c(celticV[3:4],celticV[13:14],celticV[23:24],celticV[33:34],celticV[43:44])
+celticShotsTot <- sum(celticShots[1:10])
 
 kdPct <- (kd[3] + kd[4]) / otherShotsTot
 stephPct <- (steph[3] + steph[4]) / otherShotsTot
@@ -35,19 +38,6 @@ birdPct <- (bird[3] + bird[4]) / otherShotsTot
 mchalePct <- (mchale[3] + mchale[4]) / otherShotsTot
 pierce08Pct <- (pierce08[3] + pierce08[4]) / otherShotsTot
 
-
-# we need to put these vectors in a vector!!
-
-otherV <- c(kd,steph,mike,scottie,hakeem)
-celticV <- c(jaylen23,tatum23,bird,mchale,pierce08)
-
-
-#trying to add defensive ratings in vector
-otherDef <- otherV[6:7] + otherV[16:17] + otherV[26:27] + otherV[36:37] + otherV[46:47]
-otherDefPct <- otherDef[1] + otherDef[2]
-celticDef <- celticV[6:7] + celticV[16:17] + celticV[26:27] + celticV[36:37] + celticV[46:47]
-celticDef <- celticDef[1] + celticDef[2]
-
 #STL vector add
 otherSTL <- otherV[6] + otherV[16] + otherV[26] + otherV[36] + otherV[46]
 celticSTL <- celticV[6] + celticV[16] + celticV[26] + celticV[36] + celticV[46]
@@ -55,7 +45,6 @@ celticSTL <- celticV[6] + celticV[16] + celticV[26] + celticV[36] + celticV[46]
 #BLK vector add
 otherBLK <- otherV[7] + otherV[17] + otherV[27] + otherV[37] + otherV[47]
 celticBLK <- celticV[7] + celticV[17] + celticV[27] + celticV[37] + celticV[47]
-
   
 #RPG vector add
 otherRPG <- otherV[5] + otherV[15] + otherV[25] + otherV[35] + otherV[45]
@@ -79,9 +68,48 @@ other4 = otherV[35] / otherRPG
 other5 = otherV[45] / otherRPG
 otherRbdV = c(other1,other2,other3,other4,other5)
 
+#STL vector add
+otherSTL <- otherV[6] + otherV[16] + otherV[26] + otherV[36] + otherV[46]
+celticSTL <- celticV[6] + celticV[16] + celticV[26] + celticV[36] + celticV[46]
+
+#individual player STL PCT
+celtic1 = celticV[6] / celticSTL
+celtic2 = celticV[16] / celticSTL
+celtic3 = celticV[26] / celticSTL
+celtic4 = celticV[36] / celticSTL
+celtic5 = celticV[46] / celticSTL
+celticStlV = c(celtic1,celtic2,celtic3,celtic4,celtic5)
+other1 = otherV[6] / otherSTL
+other2 = otherV[16] / otherSTL
+other3 = otherV[26] / otherSTL
+other4 = otherV[36] / otherSTL
+other5 = otherV[46] / otherSTL
+otherStlV = c(other1,other2,other3,other4,other5)
+
+
+#Blk vector add
+otherBlk <- otherV[7] + otherV[17] + otherV[27] + otherV[37] + otherV[47]
+celticBlk <- celticV[7] + celticV[17] + celticV[27] + celticV[37] + celticV[47]
+
+#individual player Blk PCT
+celtic1 = celticV[7] / celticBlk
+celtic2 = celticV[17] / celticBlk
+celtic3 = celticV[27] / celticBlk
+celtic4 = celticV[37] / celticBlk
+celtic5 = celticV[47] / celticBlk
+celticBlkV = c(celtic1,celtic2,celtic3,celtic4,celtic5)
+other1 = otherV[7] / otherBlk
+other2 = otherV[17] / otherBlk
+other3 = otherV[27] / otherBlk
+other4 = otherV[37] / otherBlk
+other5 = otherV[47] / otherBlk
+otherBlkV = c(other1,other2,other3,other4,other5)
+
 #set player names in vector
 otherNames <- c("KD","Steph","Mike","Scottie","Hakeem")
 celticNames <- c("Jaylen","Tatum","Bird","McHale","Pierce")
+allNames <- c(otherNames,celticNames)
+
 playCount <- 0
 otherPointTotal <- 0
 celticPointTotal <- 0
@@ -93,8 +121,7 @@ rbdNum <- 0
 
 if(otherBall){
   #other goes
-  #switch sides
-  if(rbNum = 0){
+  if(rbdNum == 0){
     ranChk <- sample(1:100,1,replace=TRUE)
     ballGoes <- ranChk / 100
     if(ballGoes < kdPct){
@@ -114,19 +141,34 @@ if(otherBall){
       print("Hakeem")
     }
   }else{
-    print(otherNames(rbdNum))
+    print(paste(otherNames[rbdNum],"has the ball"))
   }  
   #identify who has ball
   playerNum <- as.integer((addForPlayer + 10) / 10)
-
   
   playDone <- FALSE
   
   #first test steal
   ranChk <- sample(1:100,1,replace=TRUE)
   if(ranChk < celticSTL) {
-    print("steal!")
     #who steals?
+    ranChk <- sample(1:100,1,replace=TRUE) / 100
+    if(ranChk < celticStlV[1]){
+      print(paste(allNames[6],"steals the ball!"))
+      stlNum = 1
+    }else if(ranChk < celticStlV[1] + celticStlV[2]){
+      print(paste(allNames[7],"steals the ball!"))
+      stlNum = 2
+    }else if(ranChk < celticStlV[1] + celticStlV[2] + celticStlV[3]){
+      print(paste(allNames[8],"steals the ball!"))
+      stlNum = 3
+    }else if(ranChk < (1 - celticStlV[5])){
+      print(paste(allNames[9],"steals the ball!"))
+      stlNum = 4
+    }else{
+      print(paste(allNames[10],"steals the ball!"))
+      stlNum = 5
+    }
     playDone <- TRUE
     otherBall<- FALSE
   }
@@ -152,10 +194,10 @@ if(otherBall){
   #assume2
   shootTwo <- TRUE
   
-  
     #test pass or shoot if noAssist = true
   if(noAssist & !playDone){
     if(ranChk < otherV[i]){
+      print(paste(otherNames[playerNum],"passes the ball"))
       noAssist <- FALSE
     }else{
       ranChk <- sample(1:100,1,replace=TRUE)
@@ -166,11 +208,33 @@ if(otherBall){
     }
     #this will be false if he fell in the assist bucket on this move
     if(noAssist){
+      #first check block
       ranChk <- sample(1:100,1,replace=TRUE)
-      #first check BLOCK
-      ranChk <- sample(1:100,1,replace=TRUE)
+      if(ranChk < celticBlk) {
+        #who blocks?
+        ranChk <- sample(1:100,1,replace=TRUE) / 100
+        if(ranChk < celticBlkV[1]){
+          print(paste(allNames[6],"blocks the shot!"))
+          BlkNum = 1
+        }else if(ranChk < celticBlkV[1] + celticBlkV[2]){
+          print(paste(allNames[7],"blocks the shot!"))
+          BlkNum = 2
+        }else if(ranChk < celticBlkV[1] + celticBlkV[2] + celticBlkV[3]){
+          print(paste(allNames[8],"blocks the shot!"))
+          BlkNum = 3
+        }else if(ranChk < (1 - celticBlkV[5])){
+          print(paste(allNames[9],"blocks the shot!"))
+          BlkNum = 4
+        }else{
+          print(paste(allNames[10],"blocks the shot!"))
+          BlkNum = 5
+        }
+        playDone <- TRUE
+        otherBall<- FALSE
+      }
       #then check SHOT
       if(shootTwo){
+        print(paste(otherNames[playerNum],"shoots a 2..."))
         i <- 1 + addForPlayer
         if((ranChk / 100) < otherV[i]){
           print(paste(otherNames[playerNum],"Scored 2!"))
@@ -228,11 +292,83 @@ if(otherBall){
         }
       }else{
         i <- 2 + addForPlayer
+        print(paste(otherNames[playerNum],"shoots a 3..."))
+        #first check block
+        ranChk <- sample(1:100,1,replace=TRUE)
+        if(ranChk < celticBlk) {
+          #who blocks?
+          ranChk <- sample(1:100,1,replace=TRUE) / 100
+          if(ranChk < celticBlkV[1]){
+            print(paste(allNames[6],"blocks the shot!"))
+            BlkNum = 1
+          }else if(ranChk < celticBlkV[1] + celticBlkV[2]){
+            print(paste(allNames[7],"blocks the shot!"))
+            BlkNum = 2
+          }else if(ranChk < celticBlkV[1] + celticBlkV[2] + celticBlkV[3]){
+            print(paste(allNames[8],"blocks the shot!"))
+            BlkNum = 3
+          }else if(ranChk < (1 - celticBlkV[5])){
+            print(paste(allNames[9],"blocks the shot!"))
+            BlkNum = 4
+          }else{
+            print(paste(allNames[10],"blocks the shot!"))
+            BlkNum = 5
+          }
+          playDone <- TRUE
+          otherBall<- FALSE
+        }
         if((ranChk / 100) < otherV[i]){
           print(paste(otherNames[playerNum],"Scored 3!"))
           playDone <- TRUE
         }else{
+          print(paste(otherNames[playerNum],"missed the 3!"))
           #check who gets rebound
+          ranChk <- sample(1:100,1,replace=TRUE)
+          if(ranChk < otherOffRbdPct){
+            #offense gets rebound
+            #determine who
+            ranChk <- sample(1:100,1,replace=TRUE) / 100
+            if(ranChk < otherRbdV[1]){
+              print(paste(otherNames[1],"gets the rebound!"))
+              rbdNum = 1
+            }else if(ranChk < otherRbdV[1] + otherRbdV[2]){
+              print(paste(otherNames[2],"gets the rebound!"))
+              rbdNum = 2
+            }else if(ranChk < otherRbdV[1] + otherRbdV[2] + otherRbdV[3]){
+              print(paste(otherNames[3],"gets the rebound!"))
+              rbdNum = 3
+            }else if(ranChk < (1 - otherRbdV[5])){
+              print(paste(otherNames[4],"gets the rebound!"))
+              rbdNum = 4
+            }else{
+              print(paste(otherNames[5],"gets the rebound!"))
+              rbdNum = 5
+            }
+            #reset play
+            noAssist = TRUE
+          }else{
+            #defense gets rebound
+            #determine who
+            ranChk <- sample(1:100,1,replace=TRUE) / 100
+            if(ranChk < celticRbdV[1]){
+              print(paste(celticNames[1],"gets the rebound!"))
+              rbdNum = 1
+            }else if(ranChk < celticRbdV[1] + celticRbdV[2]){
+              print(paste(celticNames[2],"gets the rebound!"))
+              rbdNum = 2
+            }else if(ranChk < celticRbdV[1] + celticRbdV[2] + celticRbdV[3]){
+              print(paste(celticNames[3],"gets the rebound!"))
+              rbdNum = 3
+            }else if(ranChk < (1 - celticRbdV[5])){
+              print(paste(celticNames[4],"gets the rebound!"))
+              rbdNum = 4
+            }else{
+              print(paste(celticNames[5],"gets the rebound!"))
+              rbdNum = 5
+            }
+            playCount = playCount + 1
+            otherBall = FALSE
+          }
         }
       }
     }
@@ -249,7 +385,54 @@ if(otherBall){
         otherPointTotal <- otherPointTotal + 2
         playDone <- TRUE
       }else{
-        #rebound
+        print(paste(otherNames[playerNum],"missed the 2!"))
+        #check who gets rebound
+        ranChk <- sample(1:100,1,replace=TRUE)
+        if(ranChk < otherOffRbdPct){
+          #offense gets rebound
+          #determine who
+          ranChk <- sample(1:100,1,replace=TRUE) / 100
+          if(ranChk < otherRbdV[1]){
+            print(paste(otherNames[1],"gets the rebound!"))
+            rbdNum = 1
+          }else if(ranChk < otherRbdV[1] + otherRbdV[2]){
+            print(paste(otherNames[2],"gets the rebound!"))
+            rbdNum = 2
+          }else if(ranChk < otherRbdV[1] + otherRbdV[2] + otherRbdV[3]){
+            print(paste(otherNames[3],"gets the rebound!"))
+            rbdNum = 3
+          }else if(ranChk < (1 - otherRbdV[5])){
+            print(paste(otherNames[4],"gets the rebound!"))
+            rbdNum = 4
+          }else{
+            print(paste(otherNames[5],"gets the rebound!"))
+            rbdNum = 5
+          }
+          #reset play
+          noAssist = TRUE
+        }else{
+          #defense gets rebound
+          #determine who
+          ranChk <- sample(1:100,1,replace=TRUE) / 100
+          if(ranChk < celticRbdV[1]){
+            print(paste(celticNames[1],"gets the rebound!"))
+            rbdNum = 1
+          }else if(ranChk < celticRbdV[1] + celticRbdV[2]){
+            print(paste(celticNames[2],"gets the rebound!"))
+            rbdNum = 2
+          }else if(ranChk < celticRbdV[1] + celticRbdV[2] + celticRbdV[3]){
+            print(paste(celticNames[3],"gets the rebound!"))
+            rbdNum = 3
+          }else if(ranChk < (1 - celticRbdV[5])){
+            print(paste(celticNames[4],"gets the rebound!"))
+            rbdNum = 4
+          }else{
+            print(paste(celticNames[5],"gets the rebound!"))
+            rbdNum = 5
+          }
+          playCount = playCount + 1
+          otherBall = FALSE
+        }
       }
     }else{
       i <- 2 + addForPlayer
@@ -258,6 +441,54 @@ if(otherBall){
         playDone <- TRUE
       }else{
         #rebound
+        print(paste(otherNames[playerNum],"missed the 2!"))
+        #check who gets rebound
+        ranChk <- sample(1:100,1,replace=TRUE)
+        if(ranChk < otherOffRbdPct){
+          #offense gets rebound
+          #determine who
+          ranChk <- sample(1:100,1,replace=TRUE) / 100
+          if(ranChk < otherRbdV[1]){
+            print(paste(otherNames[1],"gets the rebound!"))
+            rbdNum = 1
+          }else if(ranChk < otherRbdV[1] + otherRbdV[2]){
+            print(paste(otherNames[2],"gets the rebound!"))
+            rbdNum = 2
+          }else if(ranChk < otherRbdV[1] + otherRbdV[2] + otherRbdV[3]){
+            print(paste(otherNames[3],"gets the rebound!"))
+            rbdNum = 3
+          }else if(ranChk < (1 - otherRbdV[5])){
+            print(paste(otherNames[4],"gets the rebound!"))
+            rbdNum = 4
+          }else{
+            print(paste(otherNames[5],"gets the rebound!"))
+            rbdNum = 5
+          }
+          #reset play
+          noAssist = TRUE
+        }else{
+          #defense gets rebound
+          #determine who
+          ranChk <- sample(1:100,1,replace=TRUE) / 100
+          if(ranChk < celticRbdV[1]){
+            print(paste(celticNames[1],"gets the rebound!"))
+            rbdNum = 1
+          }else if(ranChk < celticRbdV[1] + celticRbdV[2]){
+            print(paste(celticNames[2],"gets the rebound!"))
+            rbdNum = 2
+          }else if(ranChk < celticRbdV[1] + celticRbdV[2] + celticRbdV[3]){
+            print(paste(celticNames[3],"gets the rebound!"))
+            rbdNum = 3
+          }else if(ranChk < (1 - celticRbdV[5])){
+            print(paste(celticNames[4],"gets the rebound!"))
+            rbdNum = 4
+          }else{
+            print(paste(celticNames[5],"gets the rebound!"))
+            rbdNum = 5
+          }
+          playCount = playCount + 1
+          otherBall = FALSE
+        }
       }
     }
     otherBall<- FALSE
