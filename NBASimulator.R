@@ -152,10 +152,8 @@ rebFunction <- function(){
   ranChk <- sample(1:100,1,replace=TRUE)
   if(ranChk > rbdPctV[rPct]){
     if(rPct == 4){
-      rpt <- 2
       n <- 0
     }else{
-      rPct <- 4
       n <- 5
     }
   }
