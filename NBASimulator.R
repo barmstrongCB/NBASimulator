@@ -79,38 +79,38 @@ celticOffRbdPct <- 27 + celticRPG - otherRPG
 rbdPctV <- c(otherDefRbdPct,otherOffRbdPct,celticDefRbdPct,celticOffRbdPct)
 
 #individual player RPG PCT
-celtic1 = celticV[5] / celticRPG
-celtic2 = celticV[15] / celticRPG
-celtic3 = celticV[25] / celticRPG
-celtic4 = celticV[35] / celticRPG
-celtic5 = celticV[45] / celticRPG
-celticRbdV = c(celtic1,celtic2,celtic3,celtic4,celtic5)
-other1 = otherV[5] / otherRPG
-other2 = otherV[15] / otherRPG
-other3 = otherV[25] / otherRPG
-other4 = otherV[35] / otherRPG
-other5 = otherV[45] / otherRPG
-otherRbdV = c(other1,other2,other3,other4,other5)
-allRbdV = c(otherRbdV,celticRbdV)
+celtic1 <- celticV[5] / celticRPG
+celtic2 <- celticV[15] / celticRPG
+celtic3 <- celticV[25] / celticRPG
+celtic4 <- celticV[35] / celticRPG
+celtic5 <- celticV[45] / celticRPG
+celticRbdV <- c(celtic1,celtic2,celtic3,celtic4,celtic5)
+other1 <- otherV[5] / otherRPG
+other2 <- otherV[15] / otherRPG
+other3 <- otherV[25] / otherRPG
+other4 <- otherV[35] / otherRPG
+other5 <- otherV[45] / otherRPG
+otherRbdV <- c(other1,other2,other3,other4,other5)
+allRbdV <- c(otherRbdV,celticRbdV)
 
 #STL vector add
 otherSTL <- otherV[6] + otherV[16] + otherV[26] + otherV[36] + otherV[46]
 celticSTL <- celticV[6] + celticV[16] + celticV[26] + celticV[36] + celticV[46]
 bothStlV <- c(otherSTL,celticSTL)
 #individual player STL PCT
-celtic1 = celticV[6] / celticSTL
-celtic2 = celticV[16] / celticSTL
-celtic3 = celticV[26] / celticSTL
-celtic4 = celticV[36] / celticSTL
-celtic5 = celticV[46] / celticSTL
-celticStlV = c(celtic1,celtic2,celtic3,celtic4,celtic5)
-other1 = otherV[6] / otherSTL
-other2 = otherV[16] / otherSTL
-other3 = otherV[26] / otherSTL
-other4 = otherV[36] / otherSTL
-other5 = otherV[46] / otherSTL
-otherStlV = c(other1,other2,other3,other4,other5)
-allStlV = c(otherStlV,celticStlV)
+celtic1 <- celticV[6] / celticSTL
+celtic2 <- celticV[16] / celticSTL
+celtic3 <- celticV[26] / celticSTL
+celtic4 <- celticV[36] / celticSTL
+celtic5 <- celticV[46] / celticSTL
+celticStlV <- c(celtic1,celtic2,celtic3,celtic4,celtic5)
+other1 <- otherV[6] / otherSTL
+other2 <- otherV[16] / otherSTL
+other3 <- otherV[26] / otherSTL
+other4 <- otherV[36] / otherSTL
+other5 <- otherV[46] / otherSTL
+otherStlV <- c(other1,other2,other3,other4,other5)
+allStlV <- c(otherStlV,celticStlV)
 
 
 #Blk vector add
@@ -118,19 +118,19 @@ otherBlk <- otherV[7] + otherV[17] + otherV[27] + otherV[37] + otherV[47]
 celticBlk <- celticV[7] + celticV[17] + celticV[27] + celticV[37] + celticV[47]
 
 #individual player Blk PCT
-celtic1 = celticV[7] / celticBlk
-celtic2 = celticV[17] / celticBlk
-celtic3 = celticV[27] / celticBlk
-celtic4 = celticV[37] / celticBlk
-celtic5 = celticV[47] / celticBlk
-celticBlkV = c(celtic1,celtic2,celtic3,celtic4,celtic5)
-other1 = otherV[7] / otherBlk
-other2 = otherV[17] / otherBlk
-other3 = otherV[27] / otherBlk
-other4 = otherV[37] / otherBlk
-other5 = otherV[47] / otherBlk
-otherBlkV = c(other1,other2,other3,other4,other5)
-allBlkV = c(otherBlkV,celticBlkV)
+celtic1 <- celticV[7] / celticBlk
+celtic2 <- celticV[17] / celticBlk
+celtic3 <- celticV[27] / celticBlk
+celtic4 <- celticV[37] / celticBlk
+celtic5 <- celticV[47] / celticBlk
+celticBlkV <- c(celtic1,celtic2,celtic3,celtic4,celtic5)
+other1 <- otherV[7] / otherBlk
+other2 <- otherV[17] / otherBlk
+other3 <- otherV[27] / otherBlk
+other4 <- otherV[37] / otherBlk
+other5 <- otherV[47] / otherBlk
+otherBlkV <- c(other1,other2,other3,other4,other5)
+allBlkV <- c(otherBlkV,celticBlkV)
 
 #set player names in vector
 otherNames <- c("KD","Steph","Mike","Scottie","Hakeem")
@@ -150,64 +150,38 @@ rebFunction <- function(){
     n <- 5
   }
   ranChk <- sample(1:100,1,replace=TRUE)
-  if(ranChk < rbdPctV[rPct]){
-    #offense gets rebound
-    #determine who
-    ranChk <- sample(1:100,1,replace=TRUE) / 100
-    if(ranChk < allRbdV[1 + n]){
-      print(paste(allNames[1 + n],"gets the rebound!"))
-      rbdNum = 1
-    }else if(ranChk < allRbdV[1 + n] + allRbdV[2 + n]){
-      print(paste(allNames[2 + n],"gets the rebound!"))
-      rbdNum = 2
-    }else if(ranChk < allRbdV[1 + n] + allRbdV[2 + n] + allRbdV[3 + n]){
-      print(paste(allNames[3 + n],"gets the rebound!"))
-      rbdNum = 3
-    }else if(ranChk < (1 - allRbdV[5 + n])){
-      print(paste(allNames[4 + n],"gets the rebound!"))
-      rbdNum = 4
+  if(ranChk > rbdPctV[rPct]){
+    if(rPct == 4){
+      rpt <- 2
+      n <- 0
     }else{
-      print(paste(allNames[5 + n],"gets the rebound!"))
-      rbdNum = 5
-    }
-    #reset play
-    noAssist = TRUE
-  }else{
-    #defense gets rebound
-    #determine who
-    ranChk <- sample(1:100,1,replace=TRUE) / 100
-    if(ranChk < allRbdV[1 + n]){
-      print(paste(allNames[1 + n],"gets the rebound!"))
-      rbdNum = 1
-    }else if(ranChk < allRbdV[1 + n] + allRbdV[2 + n]){
-      print(paste(allNames[2 + n],"gets the rebound!"))
-      rbdNum = 2
-    }else if(ranChk < allRbdV[1 + n] + allRbdV[2 + n] + allRbdV[3 + n]){
-      print(paste(allNames[3 + n],"gets the rebound!"))
-      rbdNum = 3
-    }else if(ranChk < (1 - allRbdV[5 + n])){
-      print(paste(allNames[4 + n],"gets the rebound!"))
-      rbdNum = 4
-    }else{
-      print(paste(allNames[5 + n],"gets the rebound!"))
-      rbdNum = 5
-    }
-    playCount = playCount + 1
-    if(teamOneBall){
-      teamOneBall = FALSE 
-    }else{
-      teamOneBall = TRUE
+      rPct <- 4
+      n <- 5
     }
   }
-  playNum = n + rbdNum
-  return(playNum)
+    #determine who
+    ranChk <- sample(1:100,1,replace=TRUE) / 100
+    if(ranChk < allRbdV[1 + n]){
+      holdBall <-1 + n
+    }else if(ranChk < allRbdV[1 + n] + allRbdV[2 + n]){
+      holdBall <-2 + n
+    }else if(ranChk < allRbdV[1 + n] + allRbdV[2 + n] + allRbdV[3 + n]){
+      holdBall <-3 + n
+    }else if(ranChk < (1 - allRbdV[5 + n])){
+      holdBall <-4 + n
+    }else{
+      holdBall <-5 + n
+    }
+    
+  return(holdBall)
 }
 
-getVecPos <- function(playNum,statNum){
-  vPos <- 6 * (playNum) - 6 + statNum
+getVecPos <- function(holdBal,statNum){
+  vPos <- 6 * (holdBal) - 6 + statNum
   return(vPos)
 }
 
+#make sure to wipe pendAssist to 0 when a basket's scored!
 
 #-------------------SET INITAL CONDITIONS FOR GAME START-----------------------
 
@@ -216,12 +190,13 @@ otherPointTotal <- 0
 celticPointTotal <- 0
 teamOneBall<- TRUE
 noAssist <- TRUE
-rbdNum <- 0
+pendAssist <- ""
+holdBall <- 0
 
 
 #------------------------------GAME LOOP---------------------------------------
 
-if(playCount <=133){
+while(playCount < 225){
   #SET team variables
   if(teamOneBall){
     n <- 0
@@ -233,77 +208,92 @@ if(playCount <=133){
     dChk <- 1
   }
   
-  if(rbdNum == 0 & stlNum == 0){
+  playDone <- FALSE
+  
+  if(holdBall == 0){
   ranChk <- sample(1:100,1,replace=TRUE)
   ballGoes <- ranChk / 100
   #who has the ball?
   # addForPlayer creates a base to find vector values from
-  if(ballGoes < allPlayerPct[1 + n]){
+  if((ballGoes < allPlayerPct[1 + n]) & pendAssist != (1 + n)){
     addForPlayer <- 0
     print(allNames[1 + n])
-  }else if(ballGoes < (allPlayerPct[1 + n] + allPlayerPct[2 + n])) {
+    holdBall <- 1 + n
+  }else if((ballGoes < (allPlayerPct[1 + n] + allPlayerPct[2 + n])) & pendAssist != (1 + n)) {
     addForPlayer <- 10
-    print(allNames[2 + n])
-  }else if(ballGoes < (allPlayerPct[1 + n] + allPlayerPct[2 + n] + allPlayerPct[3 + n])) {
+    holdBall <- 2 + n
+    print(paste(allNames[holdBall],"has the ball"))
+  }else if((ballGoes < (allPlayerPct[1 + n] + allPlayerPct[2 + n] + allPlayerPct[3 + n])) & pendAssist != (1 + n)) {
     addForPlayer <- 20
-    print(allNames[3 + n])
-  }else if(ballGoes < (allPlayerPct[1 + n] + allPlayerPct[2 + n] + allPlayerPct[3 + n] + allPlayerPct[4 + n])) {
+    holdBall <- 3 + n
+    print(paste(allNames[holdBall],"has the ball"))
+  }else if((ballGoes < (allPlayerPct[1 + n] + allPlayerPct[2 + n] + allPlayerPct[3 + n] + allPlayerPct[4 + n])) & pendAssist != (1 + n)) {
     addForPlayer <- 30
-    print(allNames[4 + n])
+    holdBall <- 4 + n
+    print(paste(allNames[holdBall],"has the ball"))
   }else {
-    addForPlayer <- 40
-    print(allNames[5 + n])
+    if(pendAssist != 5 + n) {
+      addForPlayer <- 40
+      holdBall <- 5 + n
+      print(paste(allNames[holdBall],"has the ball"))
+    }else{
+      playDone <- TRUE
+    }
   }
-  if(n == 5){
+  if(n == 5 & !playDone){
     addForPlayer <- addForPlayer + 50
   }
-  
 }else{
-  print(paste(allNames[rbdNum + n],"has the ball"))
-  addForPlayer <- (rbdNum + n) * 10 - 10
+  addForPlayer <- (holdBall) * 10 - 10
+  print(paste(allNames[holdBall],"has the ball"))
 }  
-#identify who has ball
-playerNum <- as.integer((addForPlayer + 10) / 10)
-
-playDone <- FALSE
 
 #first, test steal
 ranChk <- sample(1:100,1,replace=TRUE)
 if(ranChk < bothStlV[dChk]) {
   #so, who steals?
   ranChk <- sample(1:100,1,replace=TRUE) / 100
-  if(ranChk < celticStlV[1 + d]){
+  if(ranChk < allStlV[1 + d]){
     print(paste(allNames[1 + d],"steals the ball!"))
-    stlNum = 1
-  }else if(ranChk < celticStlV[1 + d] + celticStlV[2 + d]){
+    holdBall <-d + 1
+  }else if(ranChk < allStlV[1 + d] + allStlV[2 + d]){
     print(paste(allNames[2 + d],"steals the ball!"))
-    stlNum = 2
-  }else if(ranChk < celticStlV[1 + d] + celticStlV[2 + d] + celticStlV[3 + d]){
+    holdBall <-d + 2
+  }else if(ranChk < allStlV[1 + d] + allStlV[2 + d] + allStlV[3 + d]){
     print(paste(allNames[3 + d],"steals the ball!"))
-    stlNum = 3
-  }else if(ranChk < (1 - celticStlV[5 + d])){
+    holdBall <-d + 3
+  }else if(ranChk < (1 - allStlV[5 + d])){
     print(paste(allNames[4 + d],"steals the ball!"))
-    stlNum = 4
+    holdBall <-d + 4
   }else{
     print(paste(allNames[5 + d],"steals the ball!"))
-    stlNum = 5
+    holdBall <-d + 5
   }
+  vecPos <- getVecPos(holdBall,6)
+  totStatsV[vecPos] <-totStatsV[vecPos] + 1
+  print(paste(allNames[holdBall],"steals the ball!",totStatsV[vecPos],"total"))
   playDone <- TRUE
   if(teamOneBall){
     teamOneBall<- FALSE
   }else{
     teamOneBall <- TRUE
   }
-}else{
-  stlNum <- 0
+  playCount <- playCount + 1
 }
-#then test turnover
+  #then test turnover
 ranChk <- sample(1:100,1,replace=TRUE)
 i <- 8 + addForPlayer
 if((ranChk < allStatsV[i]) & !playDone) {
-  print(paste(allNames[playerNum],"turned it over!"))
+  vecPos <- getVecPos(holdBall,8)
+  totStatsV[vecPos] <-totStatsV[vecPos] + 1
+  print(paste(allNames[holdBall],"turns it over!!",totStatsV[vecPos],"total"))
   playDone <- TRUE
-  teamOneBall<- FALSE
+  if(teamOneBall){
+    teamOneBall<- FALSE
+  }else{
+    teamOneBall <- TRUE
+  }
+  playCount <- playCount + 1
 }
 
 #first set some variables
@@ -314,22 +304,27 @@ i <- 4 + addForPlayer
 j <- 9 + addForPlayer
 #3PA of player
 k <- 10 + addForPlayer
+#FG% of player
+l <- 1 + addForPlayer
+#FG3% 
+m <- 2 + addForPlayer
 #shotType
-player2PA <- otherV[j] / (otherV[j] + otherV[k])
-#assume2
-shootTwo <- TRUE
+player2PA <- allStatsV[j] / (allStatsV[j] + allStatsV[k])
+ranChk <- sample(1:100,1,replace=TRUE) / 100
+if(ranChk > player2PA){
+  shootTwo <- FALSE
+}else{
+  shootTwo <- TRUE
+}
 
   #test pass or shoot if noAssist = true
 if(noAssist & !playDone){
-  if(ranChk < otherV[i]){
-    print(paste(otherNames[playerNum],"passes the ball"))
+  if(ranChk < allStatsV[i]){
+    print(paste(allNames[holdBall],"passes the ball"))
     noAssist <- FALSE
-  }else{
-    ranChk <- sample(1:100,1,replace=TRUE) / 100
-    if(ranChk > player2PA){
-      shootTwo <- FALSE
-      teamOneBall<- FALSE
-    }
+    pendAssist <- holdBall
+    holdBall <- 0
+    playDone <- TRUE
   }
   #this will be false if he fell in the assist bucket on this move
   if(noAssist){
@@ -340,42 +335,58 @@ if(noAssist & !playDone){
       ranChk <- sample(1:100,1,replace=TRUE) / 100
       if(ranChk < celticBlkV[1]){
         print(paste(allNames[6],"blocks the shot!"))
-        BlkNum = 1
+        BlkNum <-1
       }else if(ranChk < celticBlkV[1] + celticBlkV[2]){
         print(paste(allNames[7],"blocks the shot!"))
-        BlkNum = 2
+        BlkNum <-2
       }else if(ranChk < celticBlkV[1] + celticBlkV[2] + celticBlkV[3]){
         print(paste(allNames[8],"blocks the shot!"))
-        BlkNum = 3
+        BlkNum <-3
       }else if(ranChk < (1 - celticBlkV[5])){
         print(paste(allNames[9],"blocks the shot!"))
-        BlkNum = 4
+        BlkNum <-4
       }else{
         print(paste(allNames[10],"blocks the shot!"))
-        BlkNum = 5
+        BlkNum <-5
       }
       playDone <- TRUE
       teamOneBall<- FALSE
+      playCount <- playCount + 1
     }
     #then check SHOT
     if(shootTwo){
-      print(paste(otherNames[playerNum],"shoots a 2..."))
+      print(paste(allNames[holdBall],"shoots a 2..."))
       i <- 1 + addForPlayer
-      if((ranChk / 100) < otherV[i]){
-        print(paste(otherNames[playerNum],"Scored 2!"))
-        otherPointTotal <- otherPointTotal + 2
+      if((ranChk / 100) < allStatsV[l]){
+        print(paste(allNames[holdBall],"Scored 2!"))
+        holdBall <- 0
         playDone <- TRUE
+        if(teamOneBall){
+          otherPointTotal <- otherPointTotal + 2
+          teamOneBall <- FALSE 
+        }else{
+          celticPointTotal <- celticPointTotal + 2
+          teamOneBall <- TRUE
+        }        
+        playCount <- playCount + 1
       }else{
-        print(paste(otherNames[playerNum],"missed the 2!"))
+        print(paste(allNames[holdBall],"missed the 2!"))
         #check who gets rebound
-        playNum <- rebFunction()
-        vecPos <- getVecPos(playNum,3)
-        totStatsV[vecPos] = totStatsV[vecPos] + 1
-        print(paste(allNames[playNum],"gets the rebound!",totStatsV[vecPos],"total"))
+        holdBall <- rebFunction()
+        vecPos <- getVecPos(holdBall,3)
+        totStatsV[vecPos] <-totStatsV[vecPos] + 1
+        print(paste(allNames[holdBall],"gets the rebound!",totStatsV[vecPos],"total"))
+        playCount <-playCount + 1
+        if(holdBall > 5){
+          teamOneBall <-FALSE 
+        }else{
+          teamOneBall <-TRUE
+        }
+        playDone <-TRUE
       }
     }else{
       i <- 2 + addForPlayer
-      print(paste(otherNames[playerNum],"shoots a 3..."))
+      print(paste(allNames[holdBall],"shoots a 3..."))
       #first check block
       ranChk <- sample(1:100,1,replace=TRUE)
       if(ranChk < celticBlk) {
@@ -383,38 +394,58 @@ if(noAssist & !playDone){
         ranChk <- sample(1:100,1,replace=TRUE) / 100
         if(ranChk < celticBlkV[1]){
           print(paste(allNames[6],"blocks the shot!"))
-          BlkNum = 1
+          BlkNum <-1
         }else if(ranChk < celticBlkV[1] + celticBlkV[2]){
           print(paste(allNames[7],"blocks the shot!"))
-          BlkNum = 2
+          BlkNum <-2
         }else if(ranChk < celticBlkV[1] + celticBlkV[2] + celticBlkV[3]){
           print(paste(allNames[8],"blocks the shot!"))
-          BlkNum = 3
+          BlkNum <-3
         }else if(ranChk < (1 - celticBlkV[5])){
           print(paste(allNames[9],"blocks the shot!"))
-          BlkNum = 4
+          BlkNum <-4
         }else{
           print(paste(allNames[10],"blocks the shot!"))
-          BlkNum = 5
+          BlkNum <-5
         }
         playDone <- TRUE
-        teamOneBall<- FALSE
+        if(teamOneBall){
+          teamOneBall <- FALSE 
+        }else{
+          teamOneBall <- TRUE
+        }
+        playCount <- playCount + 1
       }
-      if((ranChk / 100) < otherV[i]){
-        print(paste(otherNames[playerNum],"Scored 3!"))
+      if((ranChk / 100) < allStatsV[m]){
+        print(paste(allNames[holdBall],"Scored 3!"))
         playDone <- TRUE
+        if(teamOneBall){
+          otherPointTotal <- otherPointTotal + 3
+          teamOneBall <- FALSE 
+        }else{
+          celticPointTotal <- celticPointTotal + 3
+          teamOneBall <- TRUE
+        }
+        playCount <- playCount + 1
+        holdBall <- 0
       }else{
-        print(paste(otherNames[playerNum],"missed the 3!"))
+        print(paste(allNames[holdBall],"missed the 3!"))
         #check who gets rebound
-        playNum <- rebFunction()
-        vecPos <- getVecPos(playNum,3)
-        totStatsV[vecPos] = totStatsV[vecPos] + 1
-        print(paste(allNames[playNum],"gets the rebound!",totStatsV[vecPos],"total"))
+        holdBall <- rebFunction()
+        vecPos <- getVecPos(holdBall,3)
+        totStatsV[vecPos] <- totStatsV[vecPos] + 1
+        print(paste(allNames[holdBall],"gets the rebound!",totStatsV[vecPos],"total"))
+        playCount <- playCount + 1
+        if(holdBall > 5){
+          teamOneBall <- FALSE 
+        }else{
+          teamOneBall <- TRUE
+        }
+        playDone <- TRUE
         }
       }
     }
   }
-}
 if(!playDone & !noAssist){
   ranChk <- sample(1:100,1,replace=TRUE)
   #first check BLOCK
@@ -422,38 +453,70 @@ if(!playDone & !noAssist){
   #then check SHOT
   if(shootTwo){
     i <- 1 + addForPlayer
-    if((ranChk / 100) < otherV[i]){
-      print(paste(otherNames[playerNum],"Scored 2!"))
-      otherPointTotal <- otherPointTotal + 2
+    if((ranChk / 100) < allStatsV[l]){
+      print(paste(allNames[holdBall],"Scored 2!"))
       playDone <- TRUE
+      if(teamOneBall){
+        otherPointTotal <- otherPointTotal + 2
+        teamOneBall <- FALSE 
+      }else{
+        celticPointTotal <- celticPointTotal + 2
+        teamOneBall <- TRUE
+      }
+      playCount <- playCount + 1
+      holdBall <- 0
     }else{
-      print(paste(otherNames[playerNum],"missed the 2!"))
+      print(paste(allNames[holdBall],"missed the 2!"))
       #check who gets rebound
-      playNum <- rebFunction()
-      vecPos <- getVecPos(playNum,3)
-      totStatsV[vecPos] = totStatsV[vecPos] + 1
-      print(paste(allNames[playNum],"gets the rebound!",totStatsV[vecPos],"total"))
+      holdBall <- rebFunction()
+      vecPos <- getVecPos(holdBall,3)
+      totStatsV[vecPos] <- totStatsV[vecPos] + 1
+      print(paste(allNames[holdBall],"gets the rebound!",totStatsV[vecPos],"total"))
+      playCount <- playCount + 1
+      if(holdBall > 5){
+        teamOneBall <- FALSE 
+      }else{
+        teamOneBall <- TRUE
+      }
+      playDone <- TRUE
     }
   }else{
     i <- 2 + addForPlayer
-    if((ranChk / 100) < otherV[i]){
-      print(paste(otherNames[playerNum],"Scored 3!"))
+    if((ranChk / 100) < allStatsV[m]){
+      print(paste(allNames[holdBall],"Scored 3!"))
       playDone <- TRUE
+      if(teamOneBall){
+        otherPointTotal <- otherPointTotal + 3
+        teamOneBall <- FALSE 
+      }else{
+        celticPointTotal <- celticPointTotal + 3
+        teamOneBall <- TRUE
+      }
+      playCount <- playCount + 1
+      holdBall <- 0
     }else{
       #rebound
-      print(paste(otherNames[playerNum],"missed the 2!"))
+      print(paste(allNames[holdBall],"missed the 3!"))
       #check who gets rebound
-      playNum <- rebFunction()
-      vecPos <- getVecPos(playNum,3)
-      totStatsV[vecPos] = totStatsV[vecPos] + 1
-      print(paste(allNames[playNum],"gets the rebound!",totStatsV[vecPos],"total"))
+      holdBall <- rebFunction()
+      vecPos <- getVecPos(holdBall,3)
+      totStatsV[vecPos] <- totStatsV[vecPos] + 1
+      print(paste(allNames[holdBall],"gets the rebound!",totStatsV[vecPos],"total"))
+      playCount <- playCount + 1
+      if(holdBall > 5){
+        teamOneBall <- FALSE 
+      }else{
+        teamOneBall <- TRUE
+      }
+      playDone <- TRUE
     }
   }
 }
-#if assist , loop repeats
+}
 
-if(noAssist){
-playCount <- playCount + 1
+
+if(playCount == 133){
+  print("Game Over :)")
 }
 
 
@@ -479,4 +542,6 @@ playCount <- playCount + 1
 # this shuold potentially be 133 to adjust for bench players being absent - 
 # but all the stats still calculated off of 100
 # stats for all players kept in vector - (Pts,Ast,Rbd,Stl,Blk,Tov)
+
+totStatsV
 
