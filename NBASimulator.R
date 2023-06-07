@@ -644,11 +644,11 @@ p10stats <- totStatsV[91:100]
 
 totAst <- totStatsV[c(2,12,22,32,42,52,62,72,82,92)]
 totAstSum <- sum(totAst)
-totRbd <- totStatsV[c(3,13,23,33,43,53,63,73,83,92)]
+totRbd <- totStatsV[c(3,13,23,33,43,53,63,73,83,93)]
 totRbdSum <- sum(totRbd)
-totStl <- totStatsV[c(4,14,24,34,44,54,64,74,84,92)]
+totStl <- totStatsV[c(4,14,24,34,44,54,64,74,84,94)]
 totStlSum <- sum(totStl)
-totBlk <- totStatsV[c(5,15,25,35,45,55,65,75,85,92)]
+totBlk <- totStatsV[c(5,15,25,35,45,55,65,75,85,95)]
 totBlkSum <- sum(totBlk)
-totTov <- totStatsV[c(6,16,26,36,46,56,66,76,86,92)]
+totTov <- totStatsV[c(6,16,26,36,46,56,66,76,86,96)]
 totTovSum <- sum(totTov)
