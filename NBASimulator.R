@@ -326,7 +326,8 @@ while (playCount < 225) {
   #then test turnover
   ranChk <- sample(1:100, 1, replace = TRUE)
   i <- 8 + addForPlayer
-  if ((ranChk < allStatsV[i]) & !playDone) {
+  tovChk <- allStatsV[i] * 1.4
+  if ((ranChk < tovChk) & !playDone) {
     vecPos <- getVecPos(holdBall, 6)
     totStatsV[vecPos] <- totStatsV[vecPos] + 1
     print(paste(allNames[holdBall], "turns it over!!", totStatsV[vecPos], "total"))
