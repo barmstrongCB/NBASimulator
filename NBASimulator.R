@@ -221,7 +221,6 @@ getVecPos <- function(holdBall, statNum) {
   return(vPos)
 }
 
-#make sure to wipe pendAssist to 0 when a basket's scored!
 
 #-------------------SET INITAL CONDITIONS FOR GAME START-----------------------
 
@@ -363,7 +362,7 @@ while (playCount < 225) {
   #test pass or shoot if noAssist = true
   if (noAssist & !playDone) {
     #double the likelihood of pass
-    astChance <- allStatsV[i] * 6
+    astChance <- allStatsV[i] * 5
     ranChk <- sample(1:100, 1, replace = TRUE)
     if (ranChk < astChance) {
       print(paste(allNames[holdBall], "passes the ball"))
